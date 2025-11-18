@@ -12,20 +12,6 @@ Key features:
 - No external knowledge or hallucination allowed
 - Publication-ready visualisation scripts
 
-## Repository structure
-aviation-accimap-llm/
-├── preprocessing.py              # Text cleaning, TF-IDF, Word2Vec
-├── build_knowledge_base.py       # Chunking, embeddings (DashScope/local), FAISS index
-├── llm_guided_extraction.py      # RAG + schema-guided LLM extraction
-├── evidence_validation.py        # Span validation & confidence control
-├── visualization.py              # Figures for the paper
-├── data/
-│   └── sample_incidents.json     # Public NTSB/ASRS-style example (non-confidential)
-├── knowledge_base/               # ← generated
-├── extraction_results/           # ← generated
-└── requirements.txt
-
-
 ## Quick start
 
 ```bash
@@ -40,7 +26,7 @@ python -m spacy download en_core_web_sm
 # 3. (Optional) Build knowledge base with local embeddings
 python build_knowledge_base.py
 
-#    Or with DashScope (recommended, higher quality):
+#    Or with DashScope:
 python build_knowledge_base.py --use-dashscope --api-key sk-...
 
 # 4. Run extraction (requires DashScope API key)
@@ -51,3 +37,4 @@ python evidence_validation.py
 
 # 6. Generate figures
 python visualization.py
+
